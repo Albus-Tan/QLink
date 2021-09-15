@@ -1,0 +1,33 @@
+1. 【解决】在某些情况下ui界面出现角色到最下面一行还可以下移一行的情况
+   此时角色如果选定了方块，被选定的方块在角色多下移一行之后会消失
+   但是角色回到地图之后仍旧能够继续游戏
+2. 有些时候程序运行到中段会自己退出，报错信息如下
+   C:\Program Files (x86)\SogouInput\Components\
+   21:35:54: 程序异常结束。
+3. 【解决】两个角色选定同一个箱子之后，箱子框的颜色？（应该为后者）
+   两个角色选定同一个箱子之后，消除之后会出现箱体变黑，可穿模等问题
+4. 【解决】道具有时候每间隔几个就会漏掉一个的删除信息
+Props type 0 created, random pos result: 15 13
+Props type 0 created, random pos result: 5 8
+Props type 0 created, random pos result: 10 0
+Props type 0 created, random pos result: 18 28
+FUNC Widget::paintProps: Detecting prop type 0 in pos 5 8 appear time's up, now delete it
+FUNC Widget::paintProps: Detecting prop type 0 in pos 10 0 appear time's up, now delete it
+Props type 0 created, random pos result: 18 26
+FUNC Widget::paintProps: Detecting prop type 0 in pos 18 28 appear time's up, now delete it
+如第一个就没有删除信息
+5. 【解决】如果已经选择了方块Shuffle之后出现黑框的情况！
+   shuffle应该将已经选择了的方块取消！
+6. 【解决】hint后立即shuffle会出现hint的箱子实际上为空的问题
+7. 【后面无此问题】被hint的方块不能和其他相同类型的方块连接？
+8. 【解决】shuffle后hint会出现hint方框错误的问题
+9. Pause的时候道具消失没有Pause，导致存储的地图没有道具
+10. 加入Pause之后时间似乎不大对
+11. 【解决】current map solvable checked
+FUNC Map::playersSurrounded: surrounded, return true
+boxes already created: 0
+current random box type: 5
+random pos result 1: 13 5
+random pos result 1: 15 25
+random pos result 1: 4 0
+之后循环卡死
