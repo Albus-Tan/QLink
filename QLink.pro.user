@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.14.1, 2021-09-11T23:10:23. -->
+<!-- Written by QtCreator 4.14.1, 2021-10-07T12:01:36. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -64,7 +64,13 @@
     <value type="bool" key="AutoTest.Framework.QtQuickTest">true</value>
     <value type="bool" key="AutoTest.Framework.QtTest">true</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="AutoTest.CheckStates"/>
+   <valuemap type="QVariantMap" key="AutoTest.CheckStates">
+    <value type="Qt::CheckState" key="D:/SJTU/SEP/HW/Project1/QLink/simpletest.cpp:case1_testcase">Checked</value>
+    <value type="Qt::CheckState" key="D:/SJTU/SEP/HW/Project1/QLink/simpletest.cpp:case2_testcase">Checked</value>
+    <value type="Qt::CheckState" key="D:/SJTU/SEP/HW/Project1/QLink/simpletest.cpp:case3_testcase">Checked</value>
+    <value type="Qt::CheckState" key="D:/SJTU/SEP/HW/Project1/QLink/simpletest.cpp:case4_testcase">Checked</value>
+    <value type="Qt::CheckState" key="D:/SJTU/SEP/HW/Project1/QLink/simpletest.h:SimpleTest">Checked</value>
+   </valuemap>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
    <value type="bool" key="AutoTest.UseGlobal">true</value>
    <valuelist type="QVariantList" key="ClangCodeModel.CustomCommandLineKey">

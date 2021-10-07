@@ -86,14 +86,15 @@ void Widget::updateGameTimePercentageLeft()
     if(gameStatus == PLAYING){
         gameCurrentTime = clock();
         double timePassed = (gameCurrentTime - gameStartTime - gameTotalPauseTime) / 1000; //单位s
-        if(timePassed > TotalGameTimeInSeconds){
+        std::cout << "FUNC Widget::updateGameTimePercentageLeft: timePassed = " << timePassed << std::endl;
+        if((timePassed + alreadyUsedSeconds) > TotalGameTimeInSeconds){
             //游戏时间到
             gameOver(OVER);
             return;
         }
         else{
-            gameLeftSeconds = TotalGameTimeInSeconds - timePassed;
-            gameTimePercentageLeft = 100 * gameLeftSeconds / TotalGameTimeInSeconds;
+            gameLeftSeconds = (TotalGameTimeInSeconds - alreadyUsedSeconds - timePassed);
+            gameTimePercentageLeft = (100 * gameLeftSeconds / TotalGameTimeInSeconds);
         }
     }
     else{
@@ -875,16 +876,15 @@ void Widget::loadButtonClicked()
               in.readLine();
               ss << (in.readLine()).toStdString();
               ss >> s >> m;
-              gameStartTime = m; //gameStartTime
+              alreadyUsedSeconds = m; //alreadyUsedSeconds
               ss.clear();
               ss << (in.readLine()).toStdString();
               ss >> s >> m;
-              gameCurrentPauseStartTime = m; //gameCurrentPauseStartTime
+              TotalGameTimeInSeconds = m; //TotalGameTimeInSeconds
               ss.clear();
-              ss << (in.readLine()).toStdString();
-              ss >> s >> m;
-              gameTotalPauseTime = clock() - gameCurrentPauseStartTime + m; //gameTotalPauseTime
-              ss.clear();
+              gameStartTime = clock();
+              gameTotalPauseTime = 0;
+              gameCurrentPauseStartTime = gameStartTime;
 
               file->close(); //关闭文件
               delete file; //释放文件进程
@@ -953,11 +953,14 @@ void Widget::saveButtonClicked()
                     << "selectedBoxCol: " << player2->selectedBoxCol << '\n';
             }
 
+            alreadyUsedSeconds += (gameCurrentPauseStartTime - gameStartTime - gameTotalPauseTime) / 1000;
+            gameTotalPauseTime = 0;
+            gameStartTime = clock();
+            gameCurrentPauseStartTime = gameStartTime;
             out << '\n';
             out << "TIME\n"
-                << "gameStartTime: " << gameStartTime << '\n'
-                << "gameCurrentPauseStartTimeTime: " << gameCurrentPauseStartTime << '\n'
-                << "gameTotalPauseTime: " << gameTotalPauseTime << '\n';
+                << "alreadyUsedSeconds: " << alreadyUsedSeconds << '\n'
+                << "TotalGameTimeInSeconds: " << TotalGameTimeInSeconds << '\n';
 
             file->close();
             delete(file);

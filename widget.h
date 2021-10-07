@@ -60,6 +60,7 @@ public:
     clock_t gameCurrentTime; //记录当前游戏时间
     clock_t gameTotalPauseTime = 0; //记录游戏开始到现在总的暂停时间
     clock_t gameCurrentPauseStartTime; //记录当前暂停开始的时间
+    int alreadyUsedSeconds = 0;
     int gameLeftSeconds = kTotalGameTimeInSeconds; //记录当前游戏剩余时间
     double gameTimePercentageLeft = 0.0; //记录游戏剩余时间百分比，如剩60%则值为60
 

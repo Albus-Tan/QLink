@@ -51,8 +51,8 @@ public:
 
     //与道具有关的常量，数组中i位置对应道具i
     const int kTotalPropTypes = 4;
-    const double appearFrequency[4] = {50.0, 50.0, 50.0, 50.0}; //平均1000s游戏中出现的次数
-    const int maxAppearTimes[4] = {100, 10, 100, 100}; //一局游戏中该道具最多出现几次
+    const double appearFrequency[4] = {500.0, 500.0, 500.0, 500.0}; //平均1000s游戏中出现的次数
+    const int maxAppearTimes[4] = {100, 100, 100, 100}; //一局游戏中该道具最多出现几次
     int alreadyAppearTimes[4] = {0, 0, 0, 0}; //各道具到目前为止已经出现的次数
     const int appearTimeInSeconds[4] = {10, 10, 10, 10}; //道具出现一次最长的持续时间，单位s
 

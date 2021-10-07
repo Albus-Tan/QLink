@@ -158,4 +158,4 @@ void SimpleTest::case4_testcase(){
 }
 
 
-// QTEST_MAIN(SimpleTest)
+//QTEST_MAIN(SimpleTest)

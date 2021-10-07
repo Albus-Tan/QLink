@@ -235,16 +235,15 @@ void Menu::loadButtonClicked()
               in.readLine();
               ss << (in.readLine()).toStdString();
               ss >> s >> m;
-              gameWidget->gameStartTime = m; //gameStartTime
+              gameWidget->alreadyUsedSeconds = m; //alreadyUsedSeconds
               ss.clear();
               ss << (in.readLine()).toStdString();
               ss >> s >> m;
-              gameWidget->gameCurrentPauseStartTime = m; //gameCurrentPauseStartTime
+              gameWidget->TotalGameTimeInSeconds = m; //TotalGameTimeInSeconds
               ss.clear();
-              ss << (in.readLine()).toStdString();
-              ss >> s >> m;
-              gameWidget->gameTotalPauseTime = clock() - gameWidget->gameCurrentPauseStartTime + m; //gameTotalPauseTime
-              ss.clear();
+              gameWidget->gameStartTime = clock();
+              gameWidget->gameTotalPauseTime = 0;
+              gameWidget->gameCurrentPauseStartTime = gameWidget->gameStartTime;
 
               file->close(); //关闭文件
               delete file; //释放文件进程
